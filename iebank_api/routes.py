@@ -26,7 +26,11 @@ def skull():
 def create_account():
     name = request.json['name']
     currency = request.json['currency']
-    account = Account(name, currency)
+
+    #ADLT: Add country field
+    country = request.json['country']
+
+    account = Account(name, currency, country)
     db.session.add(account)
     db.session.commit()
     return format_account(account)
@@ -62,6 +66,8 @@ def format_account(account):
         'account_number': account.account_number,
         'balance': account.balance,
         'currency': account.currency,
+        #ADLT: Add country field
+        'country': account.country,
         'status': account.status,
         'created_at': account.created_at
     }
