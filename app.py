@@ -7,5 +7,5 @@ from iebank_api import app
 
 # Get the port from the PORT environment variable
 if __name__ == '__main__':
-    port = int(os.environ.get('FLASK_RUN_PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    port_to_use = int(os.environ.get('FLASK_RUN_PORT', 5000))
+    app.run(host='0.0.0.0', port=port_to_use, debug=True)
